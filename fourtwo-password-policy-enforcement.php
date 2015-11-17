@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: BODA's Password Policy Enforcement
- * Plugin URI: https://github.com/BODA82/BODAs-Password-Policy-Enforcement
+ * Plugin Name: FourTwo Password Policy Enforcement
+ * Plugin URI: https://github.com/BODA82/FourTwo-Password-Policy-Enforcement
  * Description: A WordPress plugin to enforce strong user passwords. Based off of work previously done by <a href="http://www.webtipblog.com/force-password-complexity-requirements-wordpress/" target="_blank">Joe Sexton</a>.
  * Version: 1.0
  * Author: Christopher Spires
@@ -11,9 +11,9 @@
 
 include_once('interface.php');
 
-add_action( 'user_profile_update_errors', 'bodas_ppe_validateProfileUpdate', 10, 3 );
-add_filter( 'registration_errors', 'bodas_ppe_validateRegistration', 10, 3 );
-add_action( 'validate_password_reset', 'bodas_ppe_validatePasswordReset', 10, 2 );
+add_action( 'user_profile_update_errors', 'fourtwo_ppe_validateProfileUpdate', 10, 3 );
+add_filter( 'registration_errors', 'fourtwo_ppe_validateRegistration', 10, 3 );
+add_action( 'validate_password_reset', 'fourtwo_ppe_validatePasswordReset', 10, 2 );
  
  
  
@@ -25,9 +25,9 @@ add_action( 'validate_password_reset', 'bodas_ppe_validatePasswordReset', 10, 2 
  * @param   boolean $update
  * @param   object $user raw user object not a WP_User
  */
-function bodas_ppe_validateProfileUpdate( WP_Error &$errors, $update, &$user ) {
+function fourtwo_ppe_validateProfileUpdate( WP_Error &$errors, $update, &$user ) {
  
-    return bodas_ppe_validateComplexPassword( $errors );
+    return fourtwo_ppe_validateComplexPassword( $errors );
 }
  
  
@@ -40,9 +40,9 @@ function bodas_ppe_validateProfileUpdate( WP_Error &$errors, $update, &$user ) {
  * @param   string $user_email
  * @return  WP_Error
  */
-function bodas_ppe_validateRegistration( WP_Error &$errors, $sanitized_user_login, $user_email ) {
+function fourtwo_ppe_validateRegistration( WP_Error &$errors, $sanitized_user_login, $user_email ) {
  
-    return bodas_ppe_validateComplexPassword( $errors );
+    return fourtwo_ppe_validateComplexPassword( $errors );
 }
  
 /**
@@ -53,9 +53,9 @@ function bodas_ppe_validateRegistration( WP_Error &$errors, $sanitized_user_logi
  * @param   stdClass $userData
  * @return  WP_Error
  */
-function bodas_ppe_validatePasswordReset( WP_Error $errors, $userData ) {
+function fourtwo_ppe_validatePasswordReset( WP_Error $errors, $userData ) {
  
-    return bodas_ppe_validateComplexPassword( $errors );
+    return fourtwo_ppe_validateComplexPassword( $errors );
 }
  
 /**
@@ -66,7 +66,7 @@ function bodas_ppe_validatePasswordReset( WP_Error $errors, $userData ) {
  * @param   stdClass $userData
  * @return  WP_Error
  */
-function bodas_ppe_validateComplexPassword( $errors ) {
+function fourtwo_ppe_validateComplexPassword( $errors ) {
  
     $password = ( isset( $_POST[ 'pass1' ] ) && trim( $_POST[ 'pass1' ] ) ) ? $_POST[ 'pass1' ] : null;
  
@@ -74,7 +74,7 @@ function bodas_ppe_validateComplexPassword( $errors ) {
     if ( empty( $password ) || ( $errors->get_error_data( 'pass' ) ) )
         return $errors;
     
-    $pass = bodas_ppe_isStrongPassword( $password );
+    $pass = fourtwo_ppe_isStrongPassword( $password );
     
     // validate
     if ( ! $pass['length'] )
@@ -106,7 +106,7 @@ function bodas_ppe_validateComplexPassword( $errors ) {
  * @param   string $password
  * @return  boolean
  */
-function bodas_ppe_isStrongPassword( $password ) {
+function fourtwo_ppe_isStrongPassword( $password ) {
  
  	// check if password meets length criteria (at least 8 characters)
  	if ( strlen( $password ) >= 8 ) {
