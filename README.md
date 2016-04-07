@@ -5,7 +5,7 @@
 
 ## Description
 
-BODA'S Password Policy Enforcement is a simple WordPress plugin that enforces strong user passwords.
+FourTwo Password Policy Enforcement is a simple WordPress plugin that enforces strong user passwords.
 
 ## Installation
 
