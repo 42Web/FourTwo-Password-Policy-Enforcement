@@ -13,12 +13,6 @@ FourTwo Password Policy Enforcement is a simple WordPress plugin that enforces s
 * Visit the `Installed Plugins` admin page.
 * Find this plugins listing, and select the activate button.
 
-## Usage
-
 ## To-Do
 
 * Add plugin auto-updater
-
-## Changelog
-
-See the [Changelog](CHANGELOG.md).
