@@ -1,4 +1,4 @@
-# BODAs-Password-Policy-Enforcement
+# FourTwo-Password-Policy-Enforcement
 [![GitHub license](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://raw.githubusercontent.com/TGMPA/TGM-Plugin-Activation/develop/LICENSE.md)
 [![WordPress](https://img.shields.io/wordpress/v/akismet.svg)](https://wordpress.org/)
 
